@@ -36,20 +36,20 @@
   }
   body { background: var(--page); color: var(--ink);
     font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    margin: 0; padding: 24px; line-height: 1.5; }
+    margin: 0; padding: 18px 14px; line-height: 1.55; }
   main { max-width: 640px; margin: 0 auto; }
-  h1 { font-size: 20px; margin: 0 0 4px; }
-  .sub { color: var(--ink2); font-size: 13px; margin-bottom: 16px; }
+  h1 { font-size: 21px; margin: 0 0 4px; }
+  .sub { color: var(--ink2); font-size: 14px; margin-bottom: 16px; }
   section { background: var(--surface); border: 1px solid var(--border);
-    border-radius: 10px; padding: 16px 18px; margin-bottom: 16px; overflow-x: auto; }
-  h2 { font-size: 14px; margin: 0 0 12px; }
-  h3.sub2 { font-size: 12px; color: var(--muted); margin: 12px 0 6px; font-weight: 500; }
-  .note { color: var(--muted); font-size: 12px; margin-top: 8px; }
+    border-radius: 10px; padding: 16px; margin-bottom: 16px; overflow-x: auto; }
+  h2 { font-size: 15px; margin: 0 0 12px; }
+  h3.sub2 { font-size: 12.5px; color: var(--muted); margin: 12px 0 6px; font-weight: 500; }
+  .note { color: var(--muted); font-size: 12.5px; margin-top: 8px; }
   .empty { color: var(--muted); font-size: 13px; }
   .badge { font-size: 11px; font-weight: 500; color: var(--ink2); border: 1px solid var(--border);
     border-radius: 999px; padding: 2px 9px; vertical-align: 2px; margin-left: 6px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip { display: inline-flex; align-items: baseline; gap: 5px; font-size: 13px;
+  .chip { display: inline-flex; align-items: baseline; gap: 5px; font-size: 13.5px;
     color: var(--ink); border: 1px solid var(--border); border-radius: 999px;
     padding: 4px 12px; text-decoration: none; }
   .chip:hover { border-color: var(--seq); text-decoration: none; }
@@ -57,9 +57,13 @@
   rect.bar[data-key] { cursor: pointer; }
   #topic-samples, #esub-samples { margin-top: 10px; }
   .ts-head { font-size: 12px; color: var(--ink2); font-weight: 600; margin-bottom: 4px; }
-  .comm { display: flex; flex-direction: column; gap: 10px; }
-  .comm .ci b { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
-  .comm .ci p { margin: 2px 0 0; font-size: 13.5px; }
+  .comm { display: flex; flex-direction: column; gap: 12px; }
+  .comm .ci { border-left: 3px solid var(--grid); padding-left: 12px; }
+  .comm .ci.overall { border-left-color: var(--seq); }
+  .comm .ci b { display: inline-block; font-size: 12.5px; color: var(--ink); font-weight: 600;
+    border: 1px solid var(--border); background: var(--page); border-radius: 999px;
+    padding: 2px 11px; margin-bottom: 4px; }
+  .comm .ci p { margin: 2px 0 0; font-size: 14.5px; }
   .filters { display: flex; gap: 6px; margin-bottom: 14px; }
   .filters button { background: var(--surface); color: var(--ink2); font-size: 13px;
     border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; cursor: pointer; }
@@ -81,7 +85,7 @@
   .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
   .lg { font-size: 12px; color: var(--ink2); display: inline-flex; align-items: center; gap: 5px; }
   .lg i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
   td, th { padding: 6px 8px; border-top: 1px solid var(--grid); text-align: left;
     font-variant-numeric: tabular-nums; }
   th { color: var(--muted); font-size: 11px; font-weight: 500; border-top: none; }
@@ -93,6 +97,12 @@
   .more { margin-top: 10px; background: none; border: 1px solid var(--border);
     border-radius: 8px; color: var(--seq); font-size: 13px; padding: 6px 16px; cursor: pointer; }
   .more:hover { border-color: var(--seq); }
+  /* スマホ: チャートを縮ませず最小幅を保って横スクロールに逃がす
+     (SVG が画面幅まで縮むと中の文字が読めなくなるため) */
+  @media (max-width: 700px) {
+    #c-daily svg, #c-topics svg, #c-domains svg, #c-esubs svg { min-width: 520px; }
+    .kpi .v { font-size: 22px; }
+  }
   /* PC: 2カラムグリッド + 文字を大きく */
   @media (min-width: 1000px) {
     body { padding: 36px 32px; font-size: 15px; }
