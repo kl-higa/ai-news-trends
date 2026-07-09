@@ -46,8 +46,9 @@
   h3.sub2 { font-size: 12px; color: var(--muted); margin: 12px 0 6px; font-weight: 500; }
   .note { color: var(--muted); font-size: 12px; margin-top: 8px; }
   .empty { color: var(--muted); font-size: 13px; }
-  .comm dt { font-size: 12px; color: var(--muted); font-weight: 600; margin-top: 10px; }
-  .comm dd { margin: 2px 0 0; font-size: 13.5px; }
+  .comm { display: flex; flex-direction: column; gap: 10px; }
+  .comm .ci b { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
+  .comm .ci p { margin: 2px 0 0; font-size: 13.5px; }
   .filters { display: flex; gap: 6px; margin-bottom: 14px; }
   .filters button { background: var(--surface); color: var(--ink2); font-size: 13px;
     border: 1px solid var(--border); border-radius: 8px; padding: 6px 14px; cursor: pointer; }
@@ -81,6 +82,31 @@
   .more { margin-top: 10px; background: none; border: 1px solid var(--border);
     border-radius: 8px; color: var(--seq); font-size: 13px; padding: 6px 16px; cursor: pointer; }
   .more:hover { border-color: var(--seq); }
+  /* PC: 2カラムグリッド + 文字を大きく */
+  @media (min-width: 1000px) {
+    body { padding: 36px 32px; font-size: 15px; }
+    main { max-width: 1160px; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 18px; align-items: start; }
+    h1, .sub, .filters, .kpis, section.wide, .note.foot { grid-column: 1 / -1; }
+    section { margin-bottom: 0; padding: 20px 24px; }
+    h1 { font-size: 27px; }
+    .sub { font-size: 15px; margin-bottom: 4px; }
+    h2 { font-size: 17px; }
+    h3.sub2 { font-size: 13px; }
+    .comm { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 32px; }
+    .comm .ci.overall { grid-column: 1 / -1; }
+    .comm .ci b { font-size: 13px; }
+    .comm .ci p { font-size: 15px; }
+    .kpi .v { font-size: 32px; }
+    .kpi .k { font-size: 13px; }
+    .filters button { font-size: 14px; padding: 8px 18px; }
+    table { font-size: 14.5px; }
+    .src { font-size: 12px; }
+    .note { font-size: 13px; }
+    .more { font-size: 14px; }
+    /* 全幅セクションのチャートは横に伸ばしすぎない(SVG文字が肥大するため) */
+    section.wide svg { max-width: 860px; margin: 0 auto; }
+  }
   #tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page);
     font-size: 12px; padding: 4px 8px; border-radius: 6px; display: none; z-index: 9;
     max-width: 320px; }
@@ -92,15 +118,15 @@
   <h1>AI業界動向ダッシュボード</h1>
   <div class="sub">国内外25以上の情報源から毎日自動収集した AI 関連ニュースの傾向(2026-07-09 〜 2026-07-09)</div>
 
-  <section>
+  <section class="wide">
     <h2>📝 トレンド考察(直近7日 / 2026-07-09 更新)</h2>
-    <dl class="comm">
-      <dt>全体</dt><dd>OpenAIのGPT-LiveやGPT-5.6、AnthropicのClaude Coworkなど主要モデルが進化。AIエージェント活用とデータセンター電力問題が顕著。</dd>
-      <dt>大企業</dt><dd>NECやSmartHRがAIエージェントで業務効率化。国内ロボット大手3社がフィジカルAI連携。</dd>
-      <dt>中小・スタートアップ</dt><dd>会計事務所向け「F&amp;M One GeNNect」が普及。中小企業向けAI導入支援コンソーシアム発足。</dd>
-      <dt>電力・エネルギー・GX</dt><dd>AIデータセンターの電力消費増大が課題。Metaが大規模投資、Sunrunは家庭用蓄電池で分散型化。</dd>
-      <dt>EV・モビリティ</dt><dd>ボルボEX60のAI搭載走行性能が注目。SDV時代に向けたHEREの位置情報プラットフォーム進化。</dd>
-    </dl>
+    <div class="comm">
+      <div class="ci overall"><b>全体</b><p>OpenAIのGPT-LiveやGPT-5.6、AnthropicのClaude Coworkなど主要モデルが進化。AIエージェント活用とデータセンター電力問題が顕著。</p></div>
+      <div class="ci"><b>大企業</b><p>NECやSmartHRがAIエージェントで業務効率化。国内ロボット大手3社がフィジカルAI連携。</p></div>
+      <div class="ci"><b>中小・スタートアップ</b><p>会計事務所向け「F&amp;M One GeNNect」が普及。中小企業向けAI導入支援コンソーシアム発足。</p></div>
+      <div class="ci"><b>電力・エネルギー・GX</b><p>AIデータセンターの電力消費増大が課題。Metaが大規模投資、Sunrunは家庭用蓄電池で分散型化。</p></div>
+      <div class="ci"><b>EV・モビリティ</b><p>ボルボEX60のAI搭載走行性能が注目。SDV時代に向けたHEREの位置情報プラットフォーム進化。</p></div>
+    </div>
     <p class="note">収集データをもとに AI が自動生成した考察です。</p>
   </section>
 
@@ -117,7 +143,7 @@
     <div class="kpi"><div class="v" id="k-total">-</div><div class="k">累計アーカイブ</div></div>
   </div>
 
-  <section>
+  <section class="wide">
     <h2>日次収集件数(カテゴリ別)</h2>
     <div id="c-daily"></div>
     <details><summary>表で見る</summary><div id="t-daily"></div></details>
@@ -134,7 +160,7 @@
     <div id="c-domains"></div>
   </section>
 
-  <section>
+  <section class="wide">
     <h2>⚡ 電力・エネルギー・GX × AI</h2>
     <h3 class="sub2">サブトピック内訳(期間内)</h3>
     <div id="c-esubs"></div>
@@ -143,7 +169,7 @@
     <button class="more" id="b-more" hidden>次の5件を表示</button>
   </section>
 
-  <div class="note">毎朝自動更新 / 記事の著作権は各発行元に帰属します</div>
+  <div class="note foot">毎朝自動更新 / 記事の著作権は各発行元に帰属します</div>
 </main>
 <div id="tip"></div>
 <script>
