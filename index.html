@@ -4,10 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="国内外の情報源から毎日自動収集したAI業界ニュースのトレンドダッシュボード">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <title>AI業界動向ダッシュボード</title>
 <style>
   :root {
-    --surface: #fcfcfb; --page: #f9f9f7; --ink: #0b0b0b; --ink2: #52514e;
+    --surface: #fcfcfb; --page: #f9f9f7; --ink: #1c1c22; --ink2: #52514e;
     --muted: #898781; --grid: #e1e0d9; --border: rgba(11,11,11,0.10);
     --seq: #256abf;
     --cat-0: #2a78d6; --cat-1: #1baf7a; --cat-2: #eda100;
@@ -21,7 +24,7 @@
     --cat-3: #008300; --cat-4: #9085e9; --cat-5: #e66767;
   }}
   :root[data-theme="light"] {
-    --surface: #fcfcfb; --page: #f9f9f7; --ink: #0b0b0b; --ink2: #52514e;
+    --surface: #fcfcfb; --page: #f9f9f7; --ink: #1c1c22; --ink2: #52514e;
     --muted: #898781; --grid: #e1e0d9; --border: rgba(11,11,11,0.10);
     --seq: #256abf;
     --cat-0: #2a78d6; --cat-1: #1baf7a; --cat-2: #eda100;
@@ -35,7 +38,7 @@
     --cat-3: #008300; --cat-4: #9085e9; --cat-5: #e66767;
   }
   body { background: var(--page); color: var(--ink);
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
     margin: 0; padding: 18px 14px; line-height: 1.55; }
   main { max-width: 640px; margin: 0 auto; }
   h1 { font-size: 21px; margin: 0 0 4px; }
@@ -456,6 +459,13 @@ if (window.parent !== window) {
   };
   new ResizeObserver(postHeight).observe(document.body);
   window.addEventListener('load', postHeight);
+
+  // 親サイト側にページ題名があるため、埋め込み時は h1 を隠して二重表示を避ける
+  const h1 = document.querySelector('h1');
+  if (h1) h1.style.display = 'none';
+
+  // 親サイトはライトテーマ固定のため、埋め込み時は OS 設定に関わらずライトに揃える
+  document.documentElement.dataset.theme = 'light';
 }
 
 renderAll();
