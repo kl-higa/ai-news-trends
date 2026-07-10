@@ -410,6 +410,19 @@ document.addEventListener('mousemove', (e) => {
 let rzt;
 window.addEventListener('resize', () => { clearTimeout(rzt); rzt = setTimeout(renderAll, 200); });
 
+// iframe 埋め込み時: 親ページへ実高さを通知し、内部スクロールをなくす
+// (親側は message を受けて iframe の height を更新する)
+if (window.parent !== window) {
+  const postHeight = () => {
+    parent.postMessage(
+      { type: 'ai-news-dashboard-height', height: document.documentElement.scrollHeight },
+      '*'
+    );
+  };
+  new ResizeObserver(postHeight).observe(document.body);
+  window.addEventListener('load', postHeight);
+}
+
 renderAll();
 </script>
 
