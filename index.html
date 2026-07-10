@@ -57,6 +57,10 @@
   rect.bar[data-key] { cursor: pointer; }
   #topic-samples, #esub-samples { margin-top: 10px; }
   .ts-head { font-size: 12px; color: var(--ink2); font-weight: 600; margin-bottom: 4px; }
+  .part-head { font-size: 17px; font-weight: 700; margin: 10px 0 2px;
+    padding-left: 12px; border-left: 4px solid var(--seq); }
+  .part-head.energy { border-left-color: var(--cat-2); margin-top: 22px; }
+  section.energy { border-left: 3px solid var(--cat-2); }
   ol.stories { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 12px; }
   .st-name { font-size: 14.5px; font-weight: 650; }
   .st-name .n { font-size: 12px; color: var(--muted); font-weight: 400; margin-left: 6px; }
@@ -140,14 +144,14 @@
   <h1>AI業界動向ダッシュボード</h1>
   <div class="sub">国内外25以上の情報源から毎日自動収集した AI 関連ニュースの傾向(2026-07-09 〜 2026-07-09)</div>
 
+  <div class="part-head wide">AI業界全体の動向</div>
+
   <section class="wide">
     <h2>📝 トレンド考察(直近7日 / 2026-07-09 更新)</h2>
     <div class="comm">
       <div class="ci overall"><b>全体</b><p>OpenAI GPT-Live全ユーザー展開、GPT-5.6公開予告でモデル進化加速。AIエージェント導入支援やClaude Code活用も活発。</p></div>
       <div class="ci"><b>大企業</b><p>NECがClaudeで商品企画、国内ロボット大手3社がフィジカルAI連携。大企業のAI導入・活用が具体化。</p></div>
       <div class="ci"><b>中小・スタートアップ</b><p>会計事務所専用AI普及、AI導入支援コンソーシアム発足で中小企業向け支援加速。業務効率化セミナーも活発。</p></div>
-      <div class="ci"><b>電力・エネルギー・GX</b><p>AIデータセンターの電力消費・環境負荷が深刻化。分散型DCや家庭用蓄電池のAI最適制御に注目。</p></div>
-      <div class="ci"><b>EV・モビリティ</b><p>ボルボEX60試乗記事、SDV時代の位置情報プラットフォームの二輪展開。自動車業界でのAI活用事例も散見。</p></div>
     </div>
     <p class="note">収集データをもとに AI が自動生成した考察です。</p>
   </section>
@@ -174,7 +178,6 @@
   <div class="kpis">
     <div class="kpi"><div class="v" id="k-today">-</div><div class="k">今日の収集件数</div></div>
     <div class="kpi"><div class="v" id="k-topic">-</div><div class="k">最多トピック(期間内)</div></div>
-    <div class="kpi"><div class="v" id="k-energy">-</div><div class="k">電力・エネルギー・GX(重点収集)</div></div>
     <div class="kpi"><div class="v" id="k-total">-</div><div class="k">累計アーカイブ</div></div>
   </div>
 
@@ -204,14 +207,23 @@
     <p class="note">公平に比較できるよう、汎用ソース由来の記事のみで集計しています。電力・エネルギーやEVは別途専用ソースで重点収集しており、その分は下の専用セクションに含まれます。</p>
   </section>
 
-  <section class="wide">
-    <h2>⚡ 電力・エネルギー・GX × AI <span class="badge">重点ウォッチ</span></h2>
-    <p class="note" style="margin: -6px 0 10px">この分野は専用ソース(Google News 検索、スマートジャパン等)で意図的に厚く収集しています。件数の多さは重点収集によるもので、AI ニュース全体に占める実際の比率を示すものではありません。</p>
+  <div class="part-head wide energy">⚡ 電力・エネルギー・GX 特集</div>
+
+  <section class="wide energy">
+    <h2>電力・エネルギー・GX × AI <span class="badge">重点ウォッチ</span>
+      <span class="badge">期間内 <b id="k-energy">-</b> 件</span></h2>
+    <p class="note" style="margin: -6px 0 10px">このセグメントは専用ソース(Google News 検索、スマートジャパン等)で意図的に厚く収集しています。件数は重点収集によるもので、上の業界全体の集計とは分けて表示しています。</p>
+    <div class="comm" style="margin-bottom: 14px">
+      <div class="ci overall"><b>この分野の考察</b><p>AIデータセンターの電力消費・環境負荷が深刻化。分散型DCや家庭用蓄電池のAI最適制御に注目。</p></div>
+      <div class="ci"><b>EV・モビリティ</b><p>ボルボEX60試乗記事、SDV時代の位置情報プラットフォームの二輪展開。自動車業界でのAI活用事例も散見。</p></div>
+    </div>
     <h3 class="sub2">この分野で動いている話題(直近7日)</h3>
     <ol class="stories"><li><div class="st-name">AIデータセンターの電力・環境負荷<span class="n"> 15件前後</span></div>
       <div class="st-links"><a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFBsOEVKOFA4WVNTMi02aWJRUkpyZFlLcnE5QU5PVHJITW56VHRQcWhTMUozdEdoTy16NnJwMnJmWnVnYU83WHQzQlhDakE5SlBYdmYwYw?oc=5" target="_blank" rel="noopener">住民脅かすAIデータセンター 水と電力の爆食いで環境負荷増大 全米で規制強まり3ヵ月で75件が中止に - 長周新聞</a><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE9tYXdqS3huT3RybXVkN0tMbzdsU1R1QUhjc3dhM1N3eUZld1h0c0ZSZkp0bE5Jd2FKOFlNMXNjMzE3TXZiTkFOdUhPNV84ZEFOZDNodWtTM0JGX3E5czNTaVdSM1RUNEVQNDNVWmZPUEVCdUt1cmIxdjU0QUJMaWs?oc=5" target="_blank" rel="noopener">なぜ「電力」と「冷却」にAI活用が縛られるのか？ ITインフラ“大変化”の背景 （ITmedia エンタープライズ） - Yahoo!ニュース</a><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxQU0ItM1NuRUxreEJZUExKeHRQTExVS29pY3JzWkdHb3BJRXBWS1hQUVBsVjBkaDBjY2dQR1FYeV9SYkRBY1RjUmhjbGFIN0UySk80bjM5SVFrZmhTX2xkMGVNRWRCQVRaNG9YdzI2cnJoVWp2SGlRME9WYVkxWTRKaUpFLVZxTEZWdVI4Y3c1Wl9BN050cEl1NjFtQQ?oc=5" target="_blank" rel="noopener">Analysis: AI data centers face mounting power hurdles as Taiwan grid strain deep</a></div></li><li><div class="st-name">分散型AIデータセンターの模索<span class="n"> 7件前後</span></div>
       <div class="st-links"><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQS2t4WnpTbDJFNXRNakdmLVV1U0pMSmtPZDFaRXp0X1hpSzdEbDl5NGhwNFlRWGNMQzhGVE5PZGxQM0ZXaHJXSVpHVUJCaUpQNV8ybno2QUJ4c1lhamttOVFtSjluZnZJNXVJV0xCR29Bb3RVUFhkelJwbmJZSTQxQTNrZ0Nud2RCSnYwLUUyNGl3MUN1ZXEw?oc=5" target="_blank" rel="noopener">Sunrun Launches Distributed AI Data Center Pilot Backed By Existing Home Energy </a><a href="https://news.google.com/rss/articles/CBMi9AFBVV95cUxQWFFrdGRHU3ZuME5nNkpEX0RGZXE1bjdUbFNCSVc1cmdSeDRDTktfUzFVLU1NNFlfWkFDT1Z2ZW9UT0o2QWd0c3JmeDBLbldmNVVEa3dwa2Z6U2Q3dTBhN2E0RjNFNGxrMThLbnVJSzlmV29PM01scjFYeVB5bk1DdWxLUkhTZXNGZGNWdXVNWWoyTmFibW5tQnZpNkl5aTNpc2JWRHhxN3RiU0pzV0RFU25NZmdGM1FkV1RDOFFnVTlfN2d1c2lVVTFqdmJYdm5XdG9xT01aS3MyZzBXdGxOZDhSWEJDNElPRkJ6TW9vWGNfZ1BI?oc=5" target="_blank" rel="noopener">Sunrun Launches Distributed AI Data Center Pilot Backed By Existing Home Energy </a><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE8xZUhZaTJ0ZC03c296M21jR2NZeG41QkhZaFZvVGEzWmZtcGQ0R1lpSGN0Z3JuaGpsOFpZanJFblFIRmd0ZFZUZWtPbElCcGItd2tZVktYSEZMc2pnTHhMSlFtWEVSNGhYTXJ5Mg?oc=5" target="_blank" rel="noopener">グリッドシェアジャパン、京セラの家庭用蓄電池「Enerezza®」シリーズの AI最適制御サービスを開始 - Excite エキサイト</a></div></li><li><div class="st-name">Metaの大規模データセンター建設<span class="n"> 7件前後</span></div>
       <div class="st-links"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxNRU1kYi03WEJLMjUzY0lVVHVwekxGWTUzVVdZTDFGTFFKVlZERWZCOFVyak1KZ3VUYzlBZzdxZS11SW1Ldzc1amZqeG41TFJ4V0FQSW9pWFEycWhjeHByMG95SFp5VTk0SFQxYnI4Q3NLR0lZYTRSVXdGbFp6VlM4M1NqdlhZT3QzdC1mSU9ScFQwVU1mSFgxVzJvcDRnU3BIVGF4Nkotblhydno4SUZR?oc=5" target="_blank" rel="noopener">Meta to build C$13 billion Alberta data center, its first in Canada - Reuters</a><a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE13bHlHOUNObGtBVjBraTBIdVhaX3RIbjZGZ3VuTGhSNVFvY01wQmhXMmZIVkdDa0lBc1A5WXZRUzktLXVHSzduN0dJNVlDQ0luV0xnX09PNVZLaUNfUTRYTTF4MWZmWHpfQ0twSDhUd28wNm1pcmlMQQ?oc=5" target="_blank" rel="noopener">Meta plans billions for first AI data center in Canada, largest outside the US -</a><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOQ3AxYmZnVDVUWUQ3U1VPX2pVdGU4Z0ZKNWpIdUF4eVJULWFDYzZXa21Ia0YzcTEzTW5maktsUXdtWjV6WklsenNaU0MzdTRSWXhSNjI2bjJEQXFJUWpEV1oxSVJGTDQxSWgwb0tCVFBvOFBCWGxxWmVBX1hPdHY1N2ZNS3RNRmRyeEVnbWdObzQ2MXRacGhoS0FBZzZreWVyaVhnOWNJUGM3NFBjYWUxcThkSGlTUQ?oc=5" target="_blank" rel="noopener">Meta to Build First Data Center in Canada, Expanding Global Fleet - Bloomberg.co</a></div></li></ol>
+    <h3 class="sub2">日次件数の推移</h3>
+    <div id="c-etrend"></div>
     <h3 class="sub2">サブトピック内訳(期間内・クリックで代表記事を表示)</h3>
     <div id="c-esubs"></div>
     <div id="esub-samples"></div>
@@ -329,6 +341,28 @@ function stacked(keys, W) {
   return '<svg viewBox="0 0 ' + W + ' 200" style="max-width:' + W + 'px" role="img">' + s + '</svg><div class="legend">' + legend + '</div>';
 }
 
+// エネルギー分野の日次件数(単一系列の縦棒)
+function energyTrend(keys, W) {
+  if (W < 480) keys = keys.slice(-14);
+  if (!keys.length) return '<p class="empty">この期間のデータがありません</p>';
+  const vals = keys.map((d) => DATA.days[d].energy || 0);
+  const max = Math.max(...vals, 1);
+  const H = 120, padB = 22, padT = 6, plotH = H - padB - padT;
+  const slot = W / Math.max(keys.length, 10);
+  const barW = Math.min(slot * 0.7, 28);
+  let s = '<line x1="0" x2="' + W + '" y1="' + padT + '" y2="' + padT + '" class="grid"/>'
+    + '<text x="0" y="' + (padT - 1) + '" class="tick">' + max + '</text>';
+  keys.forEach((day, i) => {
+    const x = i * slot + (slot - barW) / 2;
+    const h = (vals[i] / max) * plotH;
+    s += '<rect x="' + x + '" y="' + (H - padB - h) + '" width="' + barW + '" height="' + Math.max(h, 1)
+      + '" rx="3" fill="var(--cat-2)" data-tip="' + day + ': ' + vals[i] + '件"/>';
+    if (keys.length <= 10 || i % Math.ceil(keys.length / 8) === 0)
+      s += '<text x="' + (x + barW / 2) + '" y="' + (H - 7) + '" text-anchor="middle" class="tick">' + day.slice(5) + '</text>';
+  });
+  return '<svg viewBox="0 0 ' + W + ' ' + H + '" style="max-width:' + W + 'px" role="img">' + s + '</svg>';
+}
+
 function dailyTable(keys) {
   let t = '<table><tr><th>日付</th>' + CATS.map((c) => '<th>' + CAT_LABEL[c] + '</th>').join('') + '</tr>';
   for (const d of keys)
@@ -368,6 +402,7 @@ function renderAll() {
   document.getElementById('topic-samples').innerHTML = '';
   document.getElementById('c-kw').innerHTML = kwChips(keys, 'kw');
   document.getElementById('c-domains').innerHTML = hbar(domains.slice(0, 8), chartWidth('c-domains'));
+  document.getElementById('c-etrend').innerHTML = energyTrend(keys, chartWidth('c-etrend'));
   document.getElementById('c-esubs').innerHTML = hbar(sumBy(keys, 'esubs').slice(0, 6), chartWidth('c-esubs'), '件', true);
   document.getElementById('esub-samples').innerHTML = '';
   document.getElementById('c-ekw').innerHTML = kwChips(keys, 'ekw', 18);
