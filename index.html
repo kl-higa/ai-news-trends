@@ -368,14 +368,14 @@ function stacked(keys, W) {
   if (!keys.length) return '<p class="empty">この期間のデータがありません</p>';
   const totals = keys.map((d) => CATS.reduce((s, c) => s + (DATA.days[d].cat[c] || 0), 0));
   const max = Math.max(...totals, 1);
-  const H = 200, padB = 24, padT = 8, plotH = H - padB - padT;
+  const H = 208, padB = 24, padT = 16, plotH = H - padB - padT;
   const slot = W / Math.max(keys.length, 10);
   const barW = Math.min(slot * 0.7, 32);
   let s = '';
   for (const frac of [0.5, 1]) {
     const y = padT + plotH * (1 - frac);
     s += '<line x1="0" x2="' + W + '" y1="' + y + '" y2="' + y + '" class="grid"/>'
-      + '<text x="0" y="' + (y - 3) + '" class="tick">' + Math.round(max * frac) + '</text>';
+      + '<text x="0" y="' + Math.max(y - 4, 11) + '" class="tick">' + Math.round(max * frac) + '</text>';
   }
   keys.forEach((day, i) => {
     const x = i * slot + (slot - barW) / 2;
@@ -394,7 +394,7 @@ function stacked(keys, W) {
   });
   const legend = CATS.map((c, i) =>
     '<span class="lg"><i style="background:var(--cat-' + i + ')"></i>' + CAT_LABEL[c] + '</span>').join('');
-  return '<svg viewBox="0 0 ' + W + ' 200" style="max-width:' + W + 'px" role="img">' + s + '</svg><div class="legend">' + legend + '</div>';
+  return '<svg viewBox="0 0 ' + W + ' 208" style="max-width:' + W + 'px" role="img">' + s + '</svg><div class="legend">' + legend + '</div>';
 }
 
 // エネルギー分野の日次件数(単一系列の縦棒)
@@ -403,11 +403,11 @@ function energyTrend(keys, W) {
   if (!keys.length) return '<p class="empty">この期間のデータがありません</p>';
   const vals = keys.map((d) => DATA.days[d].energy || 0);
   const max = Math.max(...vals, 1);
-  const H = 120, padB = 22, padT = 6, plotH = H - padB - padT;
+  const H = 132, padB = 22, padT = 16, plotH = H - padB - padT;
   const slot = W / Math.max(keys.length, 10);
   const barW = Math.min(slot * 0.7, 28);
   let s = '<line x1="0" x2="' + W + '" y1="' + padT + '" y2="' + padT + '" class="grid"/>'
-    + '<text x="0" y="' + (padT - 1) + '" class="tick">' + max + '</text>';
+    + '<text x="0" y="' + (padT - 4) + '" class="tick">' + max + '</text>';
   keys.forEach((day, i) => {
     const x = i * slot + (slot - barW) / 2;
     const h = (vals[i] / max) * plotH;
@@ -454,17 +454,22 @@ function renderAll() {
 
   document.getElementById('c-daily').innerHTML = stacked(keys, chartWidth('c-daily'));
   document.getElementById('t-daily').innerHTML = dailyTable(keys.slice(-30));
+  // 展開済みの記事一覧(*-samples)はここでは消さない。
+  // 一覧展開→ページが伸びる→スクロールバーの出入りで幅が変わる→再描画、
+  // の連鎖で開いた一覧が消えてしまうため(消すのは期間フィルタ変更時のみ)
   document.getElementById('c-topics').innerHTML = hbar(topics.slice(0, 12), chartWidth('c-topics'), '件', true);
-  document.getElementById('topic-samples').innerHTML = '';
-  document.getElementById('domain-samples').innerHTML = '';
-  document.getElementById('cat-samples').innerHTML = '';
   document.getElementById('c-kw').innerHTML = kwChips(keys, 'kw');
   document.getElementById('c-domains').innerHTML = hbar(domains.slice(0, 8), chartWidth('c-domains'), '件', true);
   document.getElementById('c-etrend').innerHTML = energyTrend(keys, chartWidth('c-etrend'));
   document.getElementById('c-esubs').innerHTML = hbar(sumBy(keys, 'esubs').slice(0, 6), chartWidth('c-esubs'), '件', true);
-  document.getElementById('esub-samples').innerHTML = '';
   document.getElementById('c-ekw').innerHTML = kwChips(keys, 'ekw', 18);
   document.getElementById('l-energy').innerHTML = energyList();
+}
+
+function clearSamples() {
+  for (const id of ['topic-samples', 'domain-samples', 'cat-samples', 'esub-samples']) {
+    document.getElementById(id).innerHTML = '';
+  }
 }
 
 document.querySelectorAll('.filters button').forEach((b) => {
@@ -473,6 +478,7 @@ document.querySelectorAll('.filters button').forEach((b) => {
     b.classList.add('on');
     period = b.dataset.period === 'all' ? 'all' : Number(b.dataset.period);
     energyShown = 5;
+    clearSamples(); // 期間が変わると一覧の中身が古くなるためここでだけ消す
     renderAll();
   });
 });
@@ -511,6 +517,11 @@ document.addEventListener('mousemove', (e) => {
     tip.style.top = e.clientY + 14 + 'px';
   } else tip.style.display = 'none';
 });
+// スクロール・タップ後に固定位置のまま残らないように必ず消す
+const hideTip = () => { tip.style.display = 'none'; };
+document.addEventListener('scroll', hideTip, { passive: true, capture: true });
+document.addEventListener('click', hideTip);
+document.addEventListener('touchstart', hideTip, { passive: true });
 
 // 再描画は幅が変わったときだけ。高さ変化でも resize は発火するため
 // (iframe の高さ自動調整・記事一覧の開閉)、無条件だと展開した一覧が消える
