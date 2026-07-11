@@ -512,8 +512,16 @@ document.addEventListener('mousemove', (e) => {
   } else tip.style.display = 'none';
 });
 
+// 再描画は幅が変わったときだけ。高さ変化でも resize は発火するため
+// (iframe の高さ自動調整・記事一覧の開閉)、無条件だと展開した一覧が消える
 let rzt;
-window.addEventListener('resize', () => { clearTimeout(rzt); rzt = setTimeout(renderAll, 200); });
+let lastW = window.innerWidth;
+window.addEventListener('resize', () => {
+  if (window.innerWidth === lastW) return;
+  lastW = window.innerWidth;
+  clearTimeout(rzt);
+  rzt = setTimeout(renderAll, 200);
+});
 
 // iframe 埋め込み時: 親ページへ実高さを通知し、内部スクロールをなくす
 // (親側は message を受けて iframe の height を更新する)
