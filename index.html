@@ -111,6 +111,7 @@
     font: inherit; font-size: 12.5px; color: var(--seq); cursor: pointer; }
   .srcbtn:hover { text-decoration: underline; }
   .srcbox:not(:empty) { margin-top: 4px; }
+  .sample-note { margin-top: 6px; }
   /* 関連記事は根拠記事より一段控えめに(邪魔にならないよう文字色を落とす) */
   .relbtn { color: var(--muted); margin-left: 8px; }
   .relbtn:hover { color: var(--seq); }
@@ -229,17 +230,17 @@
     <div class="hlabel">本日の注目ニュース</div><ol class="topnews"><li class="tn">
       <div class="tn-head"><span class="rank">1</span><b>OpenAI、自社推論チップの性能公表</b></div>
       <p class="why">外部クラウドのコスト上昇を抑え、推論処理の価格低下が見込める。</p>
-      <div class="st-links"><a href="https://hashout.jp/ai/9206/" target="_blank" rel="noopener">「チップを作ったよ、速いよ」——OpenAIのJalapeñoがNvidiaを上回った中身 - shiritomo</a><a href="https://innovatopia.jp/semiconductor/semiconductornews/116959/" target="_blank" rel="noopener">OpenAI「Jalapeño（ハラペーニョ）」実測性能を公開｜自社AIチップで狙う推論基盤のフル ...</a></div><button class="srcbtn relbtn" type="button" data-rel="top:0" data-box="relbox-0" data-n="20">関連記事 20件</button><div class="srcbox" id="relbox-0"></div></li><li class="tn">
+      <div class="st-links"><a href="https://hashout.jp/ai/9206/" target="_blank" rel="noopener">「チップを作ったよ、速いよ」——OpenAIのJalapeñoがNvidiaを上回った中身 - shiritomo</a><a href="https://innovatopia.jp/semiconductor/semiconductornews/116959/" target="_blank" rel="noopener">OpenAI「Jalapeño（ハラペーニョ）」実測性能を公開｜自社AIチップで狙う推論基盤のフル ...</a></div><button class="srcbtn" type="button" data-rel="top:0" data-box="srcbox-0" data-n="20">同じ話題の他の記事(20件)</button><div class="srcbox" id="srcbox-0"></div></li><li class="tn">
       <div class="tn-head"><span class="rank">2</span><b>Google、法務特化AIを投入</b></div>
       <p class="why">契約書確認や法務調査などの専門業務でベンダー選択肢が増える。</p>
       <div class="st-links"><a href="https://exawizards.com/column/ai-trend/news-08-27-2026-3/" target="_blank" rel="noopener">グーグル、法務特化AI「Gemini Enterprise for Legal」を投入 OpenAI・Anthropicと真っ向勝負</a></div></li><li class="tn">
       <div class="tn-head"><span class="rank">3</span><b>NVIDIA、HuggingFace買収で合意</b></div>
       <p class="why">オープンモデルの配布基盤が単一ハード企業に集約されるリスクが出る。</p>
-      <div class="st-links"><a href="https://www.itmedia.co.jp/news/article/2608/27/2000000837/" target="_blank" rel="noopener">NVIDIA、Hugging Face買収で協議 2兆円規模で 海外報道</a><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8" target="_blank" rel="noopener">Nvidia agrees to acquire Hugging Face for $13B</a></div><button class="srcbtn relbtn" type="button" data-rel="top:2" data-box="relbox-1" data-n="20">関連記事 20件</button><div class="srcbox" id="relbox-1"></div></li></ol>
+      <div class="st-links"><a href="https://www.itmedia.co.jp/news/article/2608/27/2000000837/" target="_blank" rel="noopener">NVIDIA、Hugging Face買収で協議 2兆円規模で 海外報道</a><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8" target="_blank" rel="noopener">Nvidia agrees to acquire Hugging Face for $13B</a></div><button class="srcbtn" type="button" data-rel="top:2" data-box="srcbox-1" data-n="20">同じ話題の他の記事(20件)</button><div class="srcbox" id="srcbox-1"></div></li></ol>
     <div class="hotrow"><span class="hlabel">本日のその他の話題(クリックで関連記事)</span><div class="chips"><button class="chip hot" data-hot="0" type="button">Gemini音声認識</button><button class="chip hot" data-hot="1" type="button">ChatGPT自動化</button><button class="chip hot" data-hot="2" type="button">ローカル開発AI</button><button class="chip hot" data-hot="3" type="button">デジ庁のAI予算</button></div><div id="hot-samples"></div></div>
     <div class="comm">
-      <div class="ci"><b>今週</b><span class="hh">エージェント記事増加</span><p>AIエージェントに関する記事が先週の316件から今週は401件に増加。オラクルやJetBrainsによる業務自動化の発表が相次いだ。</p><button class="srcbtn" type="button" data-src="week" data-box="srcbox-2" data-n="2">根拠記事 2件を見る</button><div class="srcbox" id="srcbox-2"></div></div>
-      <div class="ci"><b>今月</b><span class="hh">製造業活用へ移転</span><p>月前半から後半にかけ、製造業の活用事例記事が27件から41件に増えた。野村総研やデンソーウェーブなど現場の自動化に関する動きが目立つ。</p><button class="srcbtn" type="button" data-src="month" data-box="srcbox-3" data-n="2">根拠記事 2件を見る</button><div class="srcbox" id="srcbox-3"></div></div>
+      <div class="ci"><b>今週</b><span class="hh">エージェント記事増加</span><p>AIエージェントに関する記事が先週の316件から今週は401件に増加。オラクルやJetBrainsによる業務自動化の発表が相次いだ。</p><button class="srcbtn" type="button" data-src="week" data-rel="week" data-box="srcbox-2" data-n="2">記事を見る(2件)</button><div class="srcbox" id="srcbox-2"></div></div>
+      <div class="ci"><b>今月</b><span class="hh">製造業活用へ移転</span><p>月前半から後半にかけ、製造業の活用事例記事が27件から41件に増えた。野村総研やデンソーウェーブなど現場の自動化に関する動きが目立つ。</p><button class="srcbtn" type="button" data-src="month" data-rel="month" data-box="srcbox-3" data-n="2">記事を見る(2件)</button><div class="srcbox" id="srcbox-3"></div></div>
     </div>
     <p class="note">収集・分類・下書きは自動化し、全件に出典リンクを併記しています。</p>
   </section>
@@ -249,27 +250,27 @@
     <ol class="stories"><li class="story">
       <div class="story-head"><span class="rank">1</span><b>OpenAIの自社推論チップ</b><span class="count">8件前後</span></div>
       <p class="why">推論コスト低下により自社サービスへのAI組み込み費用が下がる。</p>
-      <div class="st-links"><a href="https://hashout.jp/ai/9206/" target="_blank" rel="noopener">「チップを作ったよ、速いよ」——OpenAIのJalapeñoがNvidiaを上回った中身 - shiritomo</a><a href="https://innovatopia.jp/semiconductor/semiconductornews/116959/" target="_blank" rel="noopener">OpenAI「Jalapeño（ハラペーニョ）」実測性能を公開｜自社AIチップで狙う推論基盤のフル ...</a><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank" rel="noopener">OpenAI Jalapeño: Better than Nvidia Blackwell</a></div><button class="srcbtn relbtn" type="button" data-rel="story:0" data-box="relbox-12" data-n="20">関連記事 20件</button><div class="srcbox" id="relbox-12"></div></li><li class="story">
+      <div class="st-links"><a href="https://hashout.jp/ai/9206/" target="_blank" rel="noopener">「チップを作ったよ、速いよ」——OpenAIのJalapeñoがNvidiaを上回った中身 - shiritomo</a><a href="https://innovatopia.jp/semiconductor/semiconductornews/116959/" target="_blank" rel="noopener">OpenAI「Jalapeño（ハラペーニョ）」実測性能を公開｜自社AIチップで狙う推論基盤のフル ...</a><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank" rel="noopener">OpenAI Jalapeño: Better than Nvidia Blackwell</a></div><button class="srcbtn" type="button" data-rel="story:0" data-box="srcbox-10" data-n="20">同じ話題の他の記事(20件)</button><div class="srcbox" id="srcbox-10"></div></li><li class="story">
       <div class="story-head"><span class="rank">2</span><b>NVIDIAのHF買収検討</b><span class="count">4件前後</span></div>
       <p class="why">オープンソースのエコシステムとハードウェアの統合が整う。</p>
-      <div class="st-links"><a href="https://www.itmedia.co.jp/news/article/2608/27/2000000837/" target="_blank" rel="noopener">NVIDIA、Hugging Face買収で協議 2兆円規模で 海外報道</a><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8" target="_blank" rel="noopener">Nvidia agrees to acquire Hugging Face for $13B</a><a href="https://gigazine.net/news/20260827-nvidia-hugging-face/" target="_blank" rel="noopener">「NVIDIAがHugging Faceを2兆円超えで買収する契約に合意」との報道</a></div><button class="srcbtn relbtn" type="button" data-rel="story:1" data-box="relbox-13" data-n="20">関連記事 20件</button><div class="srcbox" id="relbox-13"></div></li><li class="story">
+      <div class="st-links"><a href="https://www.itmedia.co.jp/news/article/2608/27/2000000837/" target="_blank" rel="noopener">NVIDIA、Hugging Face買収で協議 2兆円規模で 海外報道</a><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8" target="_blank" rel="noopener">Nvidia agrees to acquire Hugging Face for $13B</a><a href="https://gigazine.net/news/20260827-nvidia-hugging-face/" target="_blank" rel="noopener">「NVIDIAがHugging Faceを2兆円超えで買収する契約に合意」との報道</a></div><button class="srcbtn" type="button" data-rel="story:1" data-box="srcbox-11" data-n="20">同じ話題の他の記事(20件)</button><div class="srcbox" id="srcbox-11"></div></li><li class="story">
       <div class="story-head"><span class="rank">3</span><b>業務AIエージェントの台頭</b><span class="count">12件前後</span></div>
       <p class="why">定型業務の自動化基盤が整い、運用時の権限管理が課題になる。</p>
-      <div class="st-links"><a href="https://dcross.impress.co.jp/docs/news/004813.html" target="_blank" rel="noopener">在庫最適化やサプライヤー審査を自動化するSCM向けAIエージェント機能、日本オラクルが発表</a><a href="https://forest.watch.impress.co.jp/docs/news/2135790.html" target="_blank" rel="noopener">AIエージェント「ChatGPT Work」がサインインを要するWebサイトの操作も実行可能に - 窓の杜</a><a href="https://corriente.jp/jetbrains-announced-junie-local/" target="_blank" rel="noopener">JetBrains、AIコーディングエージェント「Junie Local」発表。27BモデルをMac上で完全ローカル実行</a></div><button class="srcbtn relbtn" type="button" data-rel="story:2" data-box="relbox-14" data-n="20">関連記事 20件</button><div class="srcbox" id="relbox-14"></div></li><li class="story">
+      <div class="st-links"><a href="https://dcross.impress.co.jp/docs/news/004813.html" target="_blank" rel="noopener">在庫最適化やサプライヤー審査を自動化するSCM向けAIエージェント機能、日本オラクルが発表</a><a href="https://forest.watch.impress.co.jp/docs/news/2135790.html" target="_blank" rel="noopener">AIエージェント「ChatGPT Work」がサインインを要するWebサイトの操作も実行可能に - 窓の杜</a><a href="https://corriente.jp/jetbrains-announced-junie-local/" target="_blank" rel="noopener">JetBrains、AIコーディングエージェント「Junie Local」発表。27BモデルをMac上で完全ローカル実行</a></div><button class="srcbtn" type="button" data-rel="story:2" data-box="srcbox-12" data-n="20">同じ話題の他の記事(20件)</button><div class="srcbox" id="srcbox-12"></div></li><li class="story">
       <div class="story-head"><span class="rank">4</span><b>法務特化AIモデルの参入</b><span class="count">3件前後</span></div>
       <p class="why">契約書作成や法務分析などの専門業務に特化したツール選択肢が増える。</p>
-      <div class="st-links"><a href="https://exawizards.com/column/ai-trend/news-08-27-2026-3/" target="_blank" rel="noopener">グーグル、法務特化AI「Gemini Enterprise for Legal」を投入 OpenAI・Anthropicと真っ向勝負</a><a href="https://www.businessinsider.jp/article/2608-google-unveils-gemini-enterprise-for-legal-law-tech-push/" target="_blank" rel="noopener">Google、法務AI競争でアンソロピックやOpenAIに挑む - Business Insider Japan</a></div><button class="srcbtn relbtn" type="button" data-rel="story:3" data-box="relbox-15" data-n="7">関連記事 7件</button><div class="srcbox" id="relbox-15"></div></li><li class="story">
+      <div class="st-links"><a href="https://exawizards.com/column/ai-trend/news-08-27-2026-3/" target="_blank" rel="noopener">グーグル、法務特化AI「Gemini Enterprise for Legal」を投入 OpenAI・Anthropicと真っ向勝負</a><a href="https://www.businessinsider.jp/article/2608-google-unveils-gemini-enterprise-for-legal-law-tech-push/" target="_blank" rel="noopener">Google、法務AI競争でアンソロピックやOpenAIに挑む - Business Insider Japan</a></div><button class="srcbtn" type="button" data-rel="story:3" data-box="srcbox-13" data-n="7">同じ話題の他の記事(7件)</button><div class="srcbox" id="srcbox-13"></div></li><li class="story">
       <div class="story-head"><span class="rank">5</span><b>AI主導の開発プロセスの変化</b><span class="count">6件前後</span></div>
       <p class="why">コーディング作業の自動化に伴い、開発組織の構造見直しが必要になる。</p>
-      <div class="st-links"><a href="https://zenn.dev/sc30gsw/articles/953334f11df507" target="_blank" rel="noopener">ローカルでの開発やめませんか？Claude Code / Cursorで開発の8割をクラウドに移した話</a><a href="https://qiita.com/Y-Y-dev/items/d526fb7cdbe35a3f9384?__readwiseLocation=" target="_blank" rel="noopener">Claude Code／Codexに中～大規模開発を任せるためのタスク管理 - Qiita</a><a href="https://larsfaye.com/articles/ai-coding-will-prevent-expertise" target="_blank" rel="noopener">Coding expertise is going to collapse from AI reliance</a></div><button class="srcbtn relbtn" type="button" data-rel="story:4" data-box="relbox-16" data-n="20">関連記事 20件</button><div class="srcbox" id="relbox-16"></div></li></ol>
+      <div class="st-links"><a href="https://zenn.dev/sc30gsw/articles/953334f11df507" target="_blank" rel="noopener">ローカルでの開発やめませんか？Claude Code / Cursorで開発の8割をクラウドに移した話</a><a href="https://qiita.com/Y-Y-dev/items/d526fb7cdbe35a3f9384?__readwiseLocation=" target="_blank" rel="noopener">Claude Code／Codexに中～大規模開発を任せるためのタスク管理 - Qiita</a><a href="https://larsfaye.com/articles/ai-coding-will-prevent-expertise" target="_blank" rel="noopener">Coding expertise is going to collapse from AI reliance</a></div><button class="srcbtn" type="button" data-rel="story:4" data-box="srcbox-14" data-n="20">同じ話題の他の記事(20件)</button><div class="srcbox" id="srcbox-14"></div></li></ol>
     <p class="note">複数の記事でまとまった動きになっている論点です(業界全体ベース。重点観測用の専用ソースは含みません)。</p>
   </section>
 
   <section class="wide">
     <h2>観点別の動き</h2>
     <div class="comm">
-      <div class="ci"><b>大企業</b><p>日本オラクルがサプライチェーン向けAIエージェントを発表。デンソーウェーブも研究開発の自動化を提示。</p><button class="srcbtn" type="button" data-src="enterprise" data-box="srcbox-4" data-n="2">根拠記事 2件を見る</button><div class="srcbox" id="srcbox-4"></div></div>
-      <div class="ci"><b>中小・スタートアップ</b><p>名古屋大発スタートアップと組む中小メーカーや、個人開発でクラウドへ移行する事業者の動きが見られる。</p><button class="srcbtn" type="button" data-src="smb" data-box="srcbox-5" data-n="2">根拠記事 2件を見る</button><div class="srcbox" id="srcbox-5"></div></div>
+      <div class="ci"><b>大企業</b><p>日本オラクルがサプライチェーン向けAIエージェントを発表。デンソーウェーブも研究開発の自動化を提示。</p><button class="srcbtn" type="button" data-src="enterprise" data-rel="enterprise" data-box="srcbox-4" data-n="2">記事を見る(2件)</button><div class="srcbox" id="srcbox-4"></div></div>
+      <div class="ci"><b>中小・スタートアップ</b><p>名古屋大発スタートアップと組む中小メーカーや、個人開発でクラウドへ移行する事業者の動きが見られる。</p><button class="srcbtn" type="button" data-src="smb" data-rel="smb" data-box="srcbox-5" data-n="2">記事を見る(2件)</button><div class="srcbox" id="srcbox-5"></div></div>
     </div>
   </section>
 
@@ -280,19 +281,19 @@
     <p class="note">直近30日のうち、官公庁(デジタル庁・内閣府・経産省ほか)の一次発表と、国内の政策・制度に関する日本語記事を新しい順に表示しています。海外の規制動向は含みません。</p>
   </section>
 
-  <div class="filters" role="group" aria-label="グラフ・一覧の集計期間">
-    <span class="flabel">以下のグラフ・一覧の集計期間</span>
-    <button data-period="7">直近7日</button>
-    <button data-period="30" class="on">直近30日</button>
-    <button data-period="all">全期間</button>
-  </div>
-
   <div class="kpis">
     <button class="kpi kpi-click" id="kpi-today" type="button" data-tip="クリックで当日の収集記事を表示">
       <div class="v" id="k-today">-</div><div class="k">今日の収集件数</div></button>
     <div class="kpi"><div class="v" id="k-rising">-</div><div class="k">伸びているトピック(前週比)</div></div>
   </div>
   <div id="kpi-samples"></div>
+
+  <div class="filters" role="group" aria-label="グラフ・一覧の集計期間">
+    <span class="flabel">以下のグラフ・一覧の集計期間</span>
+    <button data-period="7">直近7日</button>
+    <button data-period="30" class="on">直近30日</button>
+    <button data-period="all">全期間</button>
+  </div>
 
   <section class="wide">
     <h2>日次収集件数(カテゴリ別)</h2>
@@ -303,7 +304,7 @@
   </section>
 
   <section class="wide">
-    <h2>分類別の根拠記事</h2>
+    <h2>分類別の内訳</h2>
     <div class="two-col">
       <div>
         <h3 class="sub2">トピック別</h3>
@@ -338,9 +339,9 @@
       <div class="st-links"><a href="https://esgjournaljapan.com/world-news/55240" target="_blank" rel="noopener">Qcells、マイクロソフトとAIデータセンター向け電力供給で提携拡大 VPP構築も検討 - ESG Journal</a></div></li></ol>
     <div class="hotrow"><span class="hlabel">本日のその他の話題(クリックで関連記事)</span><div class="chips"><button class="chip hot" data-ehot="0" type="button">北電の環境債</button><button class="chip hot" data-ehot="1" type="button">排出量取引改定</button><button class="chip hot" data-ehot="2" type="button">中電への報告要請</button></div><div id="ehot-samples"></div></div>
     <div class="hlabel" style="margin-bottom:6px">今週のテーマ別まとめ</div>
-    <div class="comm" style="margin-bottom: 14px"><div class="ci"><b>発電・再エネ</b><span class="hh">太陽電池の評価</span><p>発電・再エネの記事が12件から22件に増加。ペロブスカイト太陽電池の評価サービスなどが登場した。</p><button class="srcbtn" type="button" data-src="theme:発電・再エネ" data-box="srcbox-6" data-n="2">根拠記事 2件を見る</button><div class="srcbox" id="srcbox-6"></div><button class="srcbtn relbtn" type="button" data-rel="etheme:発電・再エネ" data-box="relbox-7" data-n="20">関連記事 20件</button><div class="srcbox" id="relbox-7"></div></div><div class="ci"><b>送配電・系統運用</b><span class="hh">系統強化への投資</span><p>送配電関連の記事が先週の21件から今週は48件に増加。北海道電力による環境債発行などが扱われた。</p><button class="srcbtn" type="button" data-src="theme:送配電・系統運用" data-box="srcbox-8" data-n="2">根拠記事 2件を見る</button><div class="srcbox" id="srcbox-8"></div><button class="srcbtn relbtn" type="button" data-rel="etheme:送配電・系統運用" data-box="relbox-9" data-n="20">関連記事 20件</button><div class="srcbox" id="relbox-9"></div></div><div class="ci"><b>環境価値・クレジット</b><span class="hh">取引機会の拡大</span><p>環境価値の記事が26件から35件へ増加。森林由来クレジットの販売拡大や制度運用の議論が広がる。</p><button class="srcbtn" type="button" data-src="theme:環境価値・クレジット" data-box="srcbox-10" data-n="2">根拠記事 2件を見る</button><div class="srcbox" id="srcbox-10"></div></div></div>
+    <div class="comm" style="margin-bottom: 14px"><div class="ci"><b>発電・再エネ</b><span class="hh">太陽電池の評価</span><p>発電・再エネの記事が12件から22件に増加。ペロブスカイト太陽電池の評価サービスなどが登場した。</p><button class="srcbtn" type="button" data-src="theme:発電・再エネ" data-rel="etheme:発電・再エネ" data-box="srcbox-6" data-n="22">記事を見る(22件)</button><div class="srcbox" id="srcbox-6"></div></div><div class="ci"><b>送配電・系統運用</b><span class="hh">系統強化への投資</span><p>送配電関連の記事が先週の21件から今週は48件に増加。北海道電力による環境債発行などが扱われた。</p><button class="srcbtn" type="button" data-src="theme:送配電・系統運用" data-rel="etheme:送配電・系統運用" data-box="srcbox-7" data-n="22">記事を見る(22件)</button><div class="srcbox" id="srcbox-7"></div></div><div class="ci"><b>環境価値・クレジット</b><span class="hh">取引機会の拡大</span><p>環境価値の記事が26件から35件へ増加。森林由来クレジットの販売拡大や制度運用の議論が広がる。</p><button class="srcbtn" type="button" data-src="theme:環境価値・クレジット" data-rel="etheme:環境価値・クレジット" data-box="srcbox-8" data-n="2">記事を見る(2件)</button><div class="srcbox" id="srcbox-8"></div></div></div>
     <p class="note" style="margin-top:-6px">今週目立った動きのなかったテーマ: 原子力・水素・次世代電源、電力小売・需要側、市場・制度・政策、データセンター・AI電力、電力会社の経営・DX、EV・モビリティ</p>
-    <div class="comm" style="margin-bottom:14px"><div class="ci"><b>今月</b><span class="hh">制度設計と再エネへ移行</span><p>月の前半から後半にかけ、市場・制度・政策の記事が40件から47件に増えた。排出量取引のルール議論や自治体連携による脱炭素施策が中心となった。</p><button class="srcbtn" type="button" data-src="energyMonth" data-box="srcbox-11" data-n="2">根拠記事 2件を見る</button><div class="srcbox" id="srcbox-11"></div></div></div>
+    <div class="comm" style="margin-bottom:14px"><div class="ci"><b>今月</b><span class="hh">制度設計と再エネへ移行</span><p>月の前半から後半にかけ、市場・制度・政策の記事が40件から47件に増えた。排出量取引のルール議論や自治体連携による脱炭素施策が中心となった。</p><button class="srcbtn" type="button" data-src="energyMonth" data-rel="energyMonth" data-box="srcbox-9" data-n="2">記事を見る(2件)</button><div class="srcbox" id="srcbox-9"></div></div></div>
     <h3 class="sub2">この分野で動いている話題(直近7日)</h3>
     <ol class="stories"><li class="story">
       <div class="story-head"><span class="rank">1</span><b>DC需要に向けた電力確保</b><span class="count">8件前後</span></div>
@@ -438,7 +439,10 @@ function risingTopic() {
     .sort((x, y) => y.diff - x.diff);
   const top = ranked[0];
   if (!top || top.diff <= 0) return '横ばい';
-  return top.k + ' +' + Math.round(top.diff * cur.length) + '件';
+  // 「+85件」だけだと何に対する増加か読めないため、前週→今週の実数で出す
+  const prevCount = Math.round(a(top.k) * prev.length);
+  const curCount = Math.round(b(top.k) * cur.length);
+  return top.k + ' ' + prevCount + '→' + curCount + '件';
 }
 
 function sumBy(keys, field) {
@@ -507,6 +511,22 @@ function kwChips(keys, field, limit) {
   }).join('') + '</div>';
 }
 
+// 一覧はどれも「代表を抜き出したもの」で全件ではない(分類別は最大8件、当日一覧も
+// カテゴリごとに8件まで)。それを書かないと、棒グラフが401件と示している分類を開いて
+// 8件しか出ず「数字が合っていない」と読まれる。実際にそう読まれたので必ず添える。
+function sampleFooter(shown) {
+  const base = '上記は代表 ' + shown + ' 件です(全件ではありません)。';
+  return '<p class="note sample-note">' + base
+    + (IS_PUBLIC ? '全件をご覧になりたい場合はお問い合わせください。' : '') + '</p>';
+}
+
+function articleRows(rows) {
+  return '<table>' + rows.map((it) =>
+    '<tr><td class="date">' + esc(it.d) + '</td><td><a href="' + esc(safeUrl(it.u))
+    + '" target="_blank" rel="noopener">' + esc(it.t) + '</a>'
+    + (it.s ? '<span class="src">' + esc(it.s) + '</span>' : '') + '</td></tr>').join('') + '</table>';
+}
+
 function showSamples(boxId, rows, heading, emptyMsg) {
   const box = document.getElementById(boxId);
   if (!rows || !rows.length) {
@@ -515,10 +535,23 @@ function showSamples(boxId, rows, heading, emptyMsg) {
     return;
   }
   box.innerHTML = '<div class="ts-head">' + esc(heading) + '</div>'
-    + '<table>' + rows.map((it) =>
-      '<tr><td class="date">' + it.d.slice(5) + '</td><td><a href="' + esc(safeUrl(it.u))
-      + '" target="_blank" rel="noopener">' + esc(it.t) + '</a>'
-      + (it.s ? '<span class="src">' + esc(it.s) + '</span>' : '') + '</td></tr>').join('') + '</table>';
+    + articleRows(rows) + sampleFooter(rows.length);
+}
+
+/**
+ * 見立ての記事を「出典」と「同じ話題の記事」に分けて1つの箱に出す。
+ * 「根拠記事」「関連記事」の2つのボタンを並べていたが、言葉が似ていて
+ * どちらを押すべきか分からないという指摘を受けて1つにまとめた。
+ */
+function showArticleGroups(boxId, groups) {
+  const box = document.getElementById(boxId);
+  const live = groups.filter((g) => g.rows.length);
+  // 「代表◯件」の注記は抜き出した一覧にだけ付ける。出典は Gemini が選んだ全件なので
+  // そこに「全件ではありません」と書くと逆に誤解させる
+  const sampled = live.filter((g) => g.sampled).reduce((n, g) => n + g.rows.length, 0);
+  box.innerHTML = live
+    .map((g) => '<div class="ts-head">' + esc(g.heading) + '</div>' + articleRows(g.rows))
+    .join('') + (sampled ? sampleFooter(sampled) : '');
 }
 
 function stacked(keys, W) {
@@ -758,42 +791,35 @@ document.getElementById('kpi-today').addEventListener('click', () => {
   showSamples('kpi-samples', rows, day + ' に収集した記事(カテゴリ別・反響順)');
 });
 
-// 見立て文(今週・今月・観点別・電力のテーマ別)の根拠記事を開閉する
+// 見立ての記事を開閉する。出典(Gemini が選んだもの)と同じ話題の記事を1つの箱に出す
 document.addEventListener('click', (e) => {
-  const b = e.target.closest('button[data-src]');
+  const b = e.target.closest('button[data-src], button[data-rel]');
   if (!b) return;
   const box = document.getElementById(b.dataset.box);
   if (!box) return;
-  if (box.innerHTML) { // 開いていたら閉じる
+  const openLabel = b.dataset.src
+    ? '記事を見る(' + b.dataset.n + '件)'
+    : '同じ話題の他の記事(' + b.dataset.n + '件)';
+  if (box.innerHTML.trim()) { // 開いていたら閉じる
     box.innerHTML = '';
-    b.textContent = '根拠記事 ' + b.dataset.n + '件を見る';
+    b.textContent = openLabel;
     return;
   }
-  const c = DATA.commentary || {};
-  const key = b.dataset.src;
-  const field = key.slice(0, 6) === 'theme:'
-    ? (c.energyThemes || {})[key.slice(6)]
-    : c[key];
-  const rows = ((field || {}).links || [])
-    .filter((l) => !IS_PUBLIC || !l.sns)
-    .map((l) => ({ d: l.d || '', t: l.t, u: l.u, s: '' }));
-  showSamples(b.dataset.box, rows, 'この見立ての根拠記事');
-  b.textContent = '閉じる';
-});
-
-// 見立ての「関連記事」を開閉する。根拠記事(data-src)とは別のボタン・別の箱
-document.addEventListener('click', (e) => {
-  const b = e.target.closest('button[data-rel]');
-  if (!b) return;
-  const box = document.getElementById(b.dataset.box);
-  if (!box) return;
-  if (box.innerHTML) {
-    box.innerHTML = '';
-    b.textContent = '関連記事 ' + b.dataset.n + '件';
-    return;
+  const groups = [];
+  if (b.dataset.src) {
+    const c = DATA.commentary || {};
+    const key = b.dataset.src;
+    const field = key.slice(0, 6) === 'theme:'
+      ? (c.energyThemes || {})[key.slice(6)]
+      : c[key];
+    const own = ((field || {}).links || [])
+      .filter((l) => !IS_PUBLIC || !l.sns)
+      .map((l) => ({ d: l.d || '', t: l.t, u: l.u, s: '' }));
+    if (own.length) groups.push({ heading: 'この見立ての出典', rows: own, sampled: false });
   }
-  showSamples(b.dataset.box, (DATA.related || {})[b.dataset.rel] || [],
-    'この論点に関連する記事(根拠記事と同じ分類 かつ 見出しの語が一致・関連度順)');
+  const rel = (DATA.related || {})[b.dataset.rel] || [];
+  if (rel.length) groups.push({ heading: '同じ話題の記事(同じ分類・見出しの語が一致)', rows: rel, sampled: true });
+  showArticleGroups(b.dataset.box, groups);
   b.textContent = '閉じる';
 });
 
